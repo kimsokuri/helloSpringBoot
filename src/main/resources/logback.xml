@@ -1,0 +1,28 @@
+<configuration>
+<!-- 콘솔 어펜더 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+<!-- 파일 어펜더 -->	
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>app.log</file>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- root 레벨을 INFO로 하겠다. -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+	
+	<!-- 위의 root 상속받음 -->
+	<logger name="kr.ac.hansung.cse" level="DEBUG" >
+	</logger>
+	
+</configuration>
